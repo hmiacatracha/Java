@@ -5,17 +5,19 @@
  */
 package automap;
 
+import java.io.File;
+
 /**
  *
  * @author hmia
  */
 public class AutoMap {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    File dir;
+
+    AutoMap(File dir) {
+        this.dir = dir;
     }
-    
+
+   
 }
