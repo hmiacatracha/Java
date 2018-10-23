@@ -1,4 +1,4 @@
-package automap.parser;
+package automap.parsing;
 
 /**
  *

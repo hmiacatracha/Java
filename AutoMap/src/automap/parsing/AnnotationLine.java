@@ -1,4 +1,6 @@
-package automap.parser;
+package automap.parsing;
+
+import automap.exceptions.InvalidLineException;
 
 /**
  *
@@ -8,10 +10,10 @@ public class AnnotationLine extends Line {
 
     private final String annotation;
 
-    public AnnotationLine(String line) throws NoValidLineException {
-        super(line);
+    public AnnotationLine(String lineAnnotation) throws InvalidLineException {
+        super(lineAnnotation);
         if (super.size() != 1 || super.getToken(0).startsWith("//@H")) {
-            throw new NoValidLineException("Annotation no valid exception");
+            throw new InvalidLineException("Annotation no valid exception");
         }
         annotation = super.getToken(0);
     }

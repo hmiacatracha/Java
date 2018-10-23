@@ -1,4 +1,6 @@
-package automap.parser;
+package automap.parsing;
+
+import automap.exceptions.InvalidLineException;
 
 /**
  *
@@ -10,18 +12,18 @@ public class PropertyLine extends Line {
     private final String javaType;
     private final String name;
 
-    public PropertyLine(String line) throws NoValidLineException {
+    public PropertyLine(String line) throws InvalidLineException {
         super(line);
         if (!isValid()) {
-            throw new NoValidLineException("Not valid property");
+            throw new InvalidLineException("Not valid property");
         }
-        this.modifier = super.getToken(0).toLowerCase();
-        this.javaType = super.getToken(1);
-        this.name = super.getToken(2).replaceAll(";", "");
+        this.modifier = getToken(0).toLowerCase();
+        this.javaType = getToken(1);
+        this.name = getToken(2).replaceAll(";", "");
     }
 
     private boolean isValid() {
-        return super.size() == 3 && super.getToken(0).equalsIgnoreCase("private");
+        return size() == 3 && getToken(0).equalsIgnoreCase("private");
     }
 
     public String getModifier() {

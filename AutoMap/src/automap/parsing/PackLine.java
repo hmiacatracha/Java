@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package automap.parser;
+package automap.parsing;
+
+import automap.exceptions.InvalidLineException;
 
 /**
  *
@@ -13,10 +15,10 @@ public class PackLine extends Line {
 
     private final String name;
 
-    public PackLine(String line) throws NoValidLineException {
+    public PackLine(String line) throws InvalidLineException {
         super(line);
         if (!isValid(line)) {
-            throw new NoValidLineException("This line isn't a package line");
+            throw new InvalidLineException("This line isn't a package line");
         }
         this.name = super.getToken(1).replaceAll(";", "").trim();
     }

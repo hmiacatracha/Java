@@ -3,15 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package automap.parser;
+package automap.exceptions;
 
 /**
  *
  * @author hmia
  */
-public class NoValidLineException extends Exception {
+public class InvalidLineException extends Exception {
 
-    public NoValidLineException(String mensage) {
+    public InvalidLineException() {
+        super("Line not valid");
+    }
+
+    public InvalidLineException(String mensage) {
         super(mensage);
-    }    
+    }
 }

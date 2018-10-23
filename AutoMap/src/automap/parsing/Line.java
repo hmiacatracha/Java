@@ -1,11 +1,11 @@
-package automap.parser;
+package automap.parsing;
 
 /**
  *
  * @author hmia
  */
 public class Line {
-    
+
     private final String[] tokens;
 
     public Line(String line) {

@@ -24,13 +24,18 @@ public class Tag {
         return this;
     }
 
+    public Tag addTag(String tag) {
+        content.add(new Tag(tag));
+        return this;
+    }
+
     public void addTagTo(String label, Tag tag) {
         Tag ltag = getTagByLabel(label);
         if (ltag != null) {
             ltag.addTag(tag);
         }
     }
-
+    
     public Tag getTagByLabel(String label) {
         if (this.label.equalsIgnoreCase(label)) {
             return this;

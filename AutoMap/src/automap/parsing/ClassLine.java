@@ -1,4 +1,6 @@
-package automap.parser;
+package automap.parsing;
+
+import automap.exceptions.InvalidLineException;
 
 /**
  *
@@ -10,11 +12,11 @@ public class ClassLine extends Line {
     private String modifierOptional;
     private String name;
 
-    public ClassLine(String line) throws NoValidLineException {
+    public ClassLine(String line) throws InvalidLineException {
         super(line);
 
         if (!isValid()) {
-            throw new NoValidLineException("Not persistente class line Exception");
+            throw new InvalidLineException("Not persistente class line Exception");
         }
 
         if (super.size() >= 3 && super.getToken(0).equalsIgnoreCase("public")
@@ -47,16 +49,8 @@ public class ClassLine extends Line {
         return modifier;
     }
 
-    public void setModifier(String modifier) {
-        this.modifier = modifier;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String nombre) {
-        this.name = nombre;
     }
 
     @Override

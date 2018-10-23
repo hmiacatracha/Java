@@ -5,9 +5,16 @@
  */
 package automap;
 
+import automap.exceptions.NoPersistenteClassException;
 import automap.io.ConsoleMenu;
 import automap.io.Util;
+import automap.parsing.ParserFileClassToPersistenteClass;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -66,6 +73,19 @@ public class AutoMap {
     private static void analizeProject() {
         File f = new File(projectURL);
         filesToMap = IOHandlerDir.getContent(f, "java");
+        List<ParserFileClassToPersistenteClass> persistenteClassList = new ArrayList<>();
+
         IOHandlerDir.displayContent(f, "java");
-    }    
+
+        for (File file : filesToMap) {
+            try {
+                ParserFileClassToPersistenteClass persistenteClass = new ParserFileClassToPersistenteClass(file);
+                persistenteClassList.add(persistenteClass);
+            } catch (FileNotFoundException ex) {
+
+            } catch (NoPersistenteClassException ex) {
+
+            }
+        }
+    }
 }

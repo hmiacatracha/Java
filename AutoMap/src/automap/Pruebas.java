@@ -1,10 +1,10 @@
 package automap;
 
-import automap.parser.AnnotationLine;
-import automap.parser.ClassLine;
-import automap.parser.NoValidLineException;
-import automap.parser.PackLine;
-import automap.parser.PropertyLine;
+import automap.parsing.AnnotationLine;
+import automap.parsing.ClassLine;
+import automap.exceptions.InvalidLineException;
+import automap.parsing.PackLine;
+import automap.parsing.PropertyLine;
 import automap.xml.Att;
 import automap.xml.Tag;
 
@@ -34,7 +34,7 @@ public class Pruebas {
             cl = new ClassLine("public abstract class  Pruebas  {");
             System.out.println(cl.getModifier());
             System.out.println(cl.getName());
-        } catch (NoValidLineException ex) {
+        } catch (InvalidLineException ex) {
             System.out.println(ex.getMessage());
         }
 
@@ -44,7 +44,7 @@ public class Pruebas {
             System.out.println(al.getAnnotation());
             al = new AnnotationLine("\\@HPk");
             System.out.println(al.getAnnotation());
-        } catch (NoValidLineException ex) {
+        } catch (InvalidLineException ex) {
             System.out.println(ex.getMessage());
         }
 
@@ -56,7 +56,7 @@ public class Pruebas {
             pl = new PropertyLine("private List<Integer> prueba;");
             System.out.println(pl);
             System.out.println(pl.getName());
-        } catch (NoValidLineException ex) {
+        } catch (InvalidLineException ex) {
             System.out.println(ex.getMessage());
         }
 
@@ -68,7 +68,7 @@ public class Pruebas {
             packLine = new PackLine("package List<Integer> prueba;");
             System.out.println(packLine);
             System.out.println(packLine.getName());
-        } catch (NoValidLineException ex) {
+        } catch (InvalidLineException ex) {
             System.out.println(ex.getMessage());
         }      
     }

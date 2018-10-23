@@ -3,22 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package automap.parser;
+package automap.parsing;
+
+import automap.exceptions.InvalidLineException;
 
 /**
  *
  * @author hmia
  */
-public class MethodLine extends Line {
+public class RelationManyToOne extends PropertyLine {
 
-    private String modifier;
-    private String returnType;
-    private String name;
-    private String[] params;
-    
-    public MethodLine(String line) {
+    public RelationManyToOne(String line) throws InvalidLineException {
         super(line);
     }
-
-    
 }
