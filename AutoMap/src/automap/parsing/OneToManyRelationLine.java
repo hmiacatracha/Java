@@ -11,9 +11,9 @@ import automap.exceptions.InvalidLineException;
  *
  * @author hmia
  */
-public class RelationManytoMany extends PropertyLine {
+public class OneToManyRelationLine extends PropertyLine {
 
-    public RelationManytoMany(String line) throws InvalidLineException {
+    public OneToManyRelationLine(String line) throws InvalidLineException {
         super(line);
     }
 }

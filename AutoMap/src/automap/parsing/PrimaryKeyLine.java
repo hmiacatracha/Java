@@ -6,7 +6,7 @@ import automap.exceptions.InvalidLineException;
  *
  * @author hmia
  */
-public class PrimaryKeyLine extends PropertyLine {
+public class PrimaryKeyLine extends Line {
 
     public PrimaryKeyLine(String line) throws InvalidLineException {
         super(line);

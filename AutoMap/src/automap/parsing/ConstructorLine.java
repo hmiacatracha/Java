@@ -43,6 +43,10 @@ public class ConstructorLine extends Line {
         this.name = name;
     }
 
+    public int getNumberOfParams(){
+        return params.length;
+    }
+    
     public String[] getParams() {
         return params;
     }

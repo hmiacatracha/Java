@@ -11,9 +11,13 @@ import automap.exceptions.InvalidLineException;
  *
  * @author hmia
  */
-public class RelationManyToOne extends PropertyLine {
-
-    public RelationManyToOne(String line) throws InvalidLineException {
+public class OneToOneRelationLine extends PropertyLine {
+    
+    public OneToOneRelationLine(String line) throws InvalidLineException {
         super(line);
+    }
+
+    private static boolean isValid() {
+        return true;
     }
 }

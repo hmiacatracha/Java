@@ -15,7 +15,7 @@ public class AnnotationLine extends Line {
         if (super.size() != 1 || super.getToken(0).startsWith("//@H")) {
             throw new InvalidLineException("Annotation no valid exception");
         }
-        annotation = super.getToken(0);
+        annotation = super.getToken(0).replace("//@", "").toUpperCase();
     }
 
     public String getAnnotation() {

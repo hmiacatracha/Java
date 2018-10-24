@@ -17,7 +17,7 @@ import java.util.Set;
  *
  * @author hmia
  */
-public class IOHandlerDir {
+public class IOHandler {
 
     /**
      * Display content of a directory
